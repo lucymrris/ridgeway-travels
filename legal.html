@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal & Terms | Ridgeway Travels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A3D62;
+            --accent: #D4AF37;
+            --accent-dark: #B8860B;
+            --white: #ffffff;
+            --pearl: #FDFBF7;
+            --text-dark: #1e272e;
+            --text-muted: #576574;
+            --border: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--pearl); color: var(--text-dark); line-height: 1.6; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background: rgba(10, 61, 98, 0.98);
+            backdrop-filter: blur(15px);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { color: white; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem; }
+        .logo span { color: var(--accent); }
+
+        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+        nav a { color: white; text-decoration: none; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        .nav-book-btn {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 0.65rem !important;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- HERO SECTION --- */
+        .legal-hero {
+            background: var(--primary);
+            color: white;
+            padding: 180px 8% 80px;
+            text-align: center;
+        }
+
+        .legal-hero span {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        .legal-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-top: 15px;
+        }
+
+        /* --- CONTENT SECTION --- */
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 8%;
+            background: white;
+            margin-top: -40px;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.05);
+        }
+
+        .policy-block { margin-bottom: 50px; }
+        
+        .policy-block h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .policy-block h3::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: var(--accent);
+            margin-right: 15px;
+        }
+
+        .policy-block p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* --- FOOTER & DISCLOSURE --- */
+        .credentials-section { 
+            background: var(--white); padding: 80px 8% 60px; border-top: 1px solid var(--border); text-align: center;
+        }
+        .partner-logo { 
+            height: 40px; width: auto; display: block; margin: 0 auto 25px auto; filter: grayscale(100%); opacity: 0.6; transition: 0.3s ease;
+        }
+        .partner-logo:hover { opacity: 1; filter: grayscale(0%); }
+        .legal-notice { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; max-width: 850px; margin: 0 auto; }
+
+        footer { background: #051a2a; color: rgba(255,255,255,0.4); padding: 50px 8%; text-align: center; }
+        .footer-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+        footer p { font-size: 0.65rem; letter-spacing: 0.5px; opacity: 0.5; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 1rem; }
+            nav ul { gap: 15px; margin-top: 10px; }
+            .content-container { padding: 60px 8%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Ridgeway <span>Travels</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="specialities.html">Specialities</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="booking.html" class="nav-book-btn">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="legal-hero">
+        <span>The Ridgeway Standard</span>
+        <h1>Legal Notice</h1>
+    </section>
+
+    <div class="content-container">
+        <div class="policy-block">
+            <h3>1. Agency Role</h3>
+            <p>Ridgeway Travels acts as an agent for disclosed principals and third-party service providers, including but not limited to airlines, hotels, and cruise lines. Contracts for travel services are established directly between the client and the specific service provider.</p>
+        </div>
+
+        <div class="policy-block">
+            <h3>2. Financial Protection</h3>
+            <p>We believe in absolute security for our clients. All bookings made through Ridgeway Travels are subject to relevant financial protections. Specific details regarding ATOL or ABTA protection will be provided clearly at the time of booking confirmation for all applicable packages.</p>
+        </div>
+
+        <div class="policy-block">
+            <h3>3. Professional Consultations</h3>
+            <p>Initial consultations are provided at our discretion. To maintain our high standard of service, we reserve the right to charge a professional planning fee for complex or multi-destination itineraries. Any such fees will be fully disclosed and agreed upon before bespoke research commences.</p>
+        </div>
+
+        <div class="policy-block">
+            <h3>4. Accuracy of Information</h3>
+            <p>While Ridgeway Travels strives for absolute accuracy in all proposals, travel details including live pricing and availability are subject to change by the end providers until a formal deposit is received and a confirmation invoice is issued.</p>
+        </div>
+    </div>
+
+    <section class="credentials-section">
+        <div class="credentials-container">
+            <img src="The-JLT-Group-Logo.png" alt="Janine Loves Travel" class="partner-logo">
+            <div class="legal-notice">
+                <p>Ridgeway Travels is a trading name of <strong>Kerry Kosh</strong>, an Independent Travel Expert. All bookings are made through <strong>Janine Loves Travel</strong>, members of ABTA (No. L3832) holding ATOL license (No. 6053).</p>
+                <p style="margin-top: 10px; font-size: 0.65rem; opacity: 0.7;">All flights and flight-inclusive holidays on this website are financially protected by the ATOL scheme. When you pay you will be supplied with an ATOL Certificate. Please see www.atol.org.uk/ATOLCertificate for more information.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="legal.html">Legal Information</a>
+        </div>
+        <p>&copy; 2026 Ridgeway Travels. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

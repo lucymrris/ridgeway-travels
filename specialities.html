@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialities | Ridgeway Travels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0A3D62;
+            --accent: #D4AF37;
+            --accent-dark: #B8860B;
+            --white: #ffffff;
+            --pearl: #FDFBF7;
+            --text-dark: #1e272e;
+            --text-muted: #576574;
+            --border: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--white); overflow-x: hidden; color: var(--text-dark); }
+
+        /* --- NAVIGATION --- */
+        header {
+            background: rgba(10, 61, 98, 0.98);
+            backdrop-filter: blur(15px);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { color: white; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem; }
+        .logo span { color: var(--accent); }
+        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+        nav a { color: white; text-decoration: none; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+        .nav-book-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white !important; padding: 12px 25px; border-radius: 50px; font-size: 0.65rem !important; }
+
+        /* --- PAGE HEADER --- */
+        .page-intro { 
+            padding: 180px 8% 100px; 
+            background: var(--primary); 
+            color: white; 
+            text-align: center;
+            position: relative;
+        }
+        .page-intro h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; }
+        .page-intro p { max-width: 700px; margin: 0 auto; opacity: 0.8; line-height: 1.8; }
+
+        /* --- SPECIALITY SECTIONS --- */
+        .speciality-block { 
+            display: flex; 
+            align-items: center; 
+            gap: 100px; 
+            padding: 120px 8%; 
+        }
+        .speciality-block:nth-child(even) { flex-direction: row-reverse; background: var(--pearl); }
+
+        .spec-visual { flex: 1; position: relative; }
+        .spec-img { 
+            width: 100%; 
+            height: 500px; 
+            object-fit: cover; 
+            border-radius: 30px; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
+        }
+        
+        .spec-content { flex: 1; }
+        .spec-tag { color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; }
+        .spec-content h2 { font-size: 2.8rem; color: var(--primary); margin: 15px 0 25px; }
+
+        .concierge-list { list-style: none; margin: 30px 0; }
+        .concierge-list li { 
+            margin-bottom: 12px; 
+            font-size: 0.95rem; 
+            display: flex; 
+            align-items: center; 
+            color: var(--text-muted);
+        }
+        .concierge-list li::before { 
+            content: '✦'; 
+            color: var(--accent); 
+            margin-right: 15px; 
+            font-weight: bold;
+        }
+
+        /* --- THE STANDARD (Process) --- */
+        .standard-section { padding: 120px 8%; background: var(--primary); color: white; text-align: center; }
+        .standard-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 30px; 
+            margin-top: 80px; 
+            position: relative;
+        }
+        .standard-step { position: relative; z-index: 2; }
+        .step-num { 
+            font-size: 4rem; 
+            font-weight: 800; 
+            color: var(--accent); 
+            opacity: 0.2; 
+            margin-bottom: -30px; 
+            display: block; 
+        }
+        .standard-step h4 { color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            transition: 0.4s;
+            font-size: 0.75rem;
+        }
+        .btn:hover { background: var(--accent); transform: translateY(-5px); }
+
+        /* --- CENTERED DISCLOSURE SECTION --- */
+        .credentials-section { 
+            background: white; 
+            padding: 60px 8%; 
+            border-top: 1px solid var(--border); 
+            text-align: center;
+        }
+        .partner-logo { 
+            height: 40px !important; 
+            width: auto !important;
+            display: block !important;
+            margin: 0 auto 25px auto !important; 
+            filter: grayscale(100%); 
+            opacity: 0.6; 
+            transition: 0.3s ease;
+        }
+        .partner-logo:hover { opacity: 1; filter: grayscale(0%); }
+        .legal-notice { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; max-width: 850px; margin: 0 auto; }
+
+        /* --- REVEAL ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- CENTERED FOOTER --- */
+        footer { 
+            background: #051a2a; 
+            color: rgba(255,255,255,0.4); 
+            padding: 50px 8%; 
+            text-align: center; 
+        }
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .footer-links a:hover { color: var(--accent); }
+        footer p { font-size: 0.65rem; letter-spacing: 0.5px; opacity: 0.5; }
+
+        @media (max-width: 968px) {
+            .speciality-block { flex-direction: column !important; text-align: center; gap: 40px; }
+            .standard-grid { grid-template-columns: 1fr; }
+            .concierge-list li { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Ridgeway <span>Travels</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="specialities.html">Specialities</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="booking.html" class="nav-book-btn">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-intro">
+        <div class="reveal">
+            <span style="color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 5px; font-size: 0.8rem;">Bespoke Expertise</span>
+            <h1>Curated Specialities</h1>
+            <p>While we can book the world, these are the enclaves where our first-hand knowledge and global industry connections truly shine.</p>
+        </div>
+    </section>
+
+    <section class="speciality-block reveal">
+        <div class="spec-visual">
+            <img src="https://images.unsplash.com/photo-1597466599360-3b9775841aec?auto=format&fit=crop&w=800&q=80" alt="Orlando Luxury Resort" class="spec-img">
+        </div>
+        <div class="spec-content">
+            <span class="spec-tag">Iconic Magic</span>
+            <h2>Disney & Florida</h2>
+            <p style="color: var(--text-muted); line-height: 1.8;">We are specialists in the "Magic." From on-site Disney hotels to luxury gated villas in Kissimmee, we ensure your Florida adventure is perfectly timed and tailored.</p>
+            <ul class="concierge-list">
+                <li>Advance Dining Reservation strategy</li>
+                <li>Private Villa vetting & concierge shopping</li>
+                <li>Park-hopper logistical planning</li>
+            </ul>
+            <a href="disney-info.html" class="btn">Explore Florida</a>
+        </div>
+    </section>
+
+    <section class="speciality-block reveal">
+        <div class="spec-visual">
+            <img src="https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&w=800&q=80" alt="Cruises" class="spec-img">
+        </div>
+        <div class="spec-content">
+            <span class="spec-tag">High Seas</span>
+            <h2>Luxury Cruises</h2>
+            <p style="color: var(--text-muted); line-height: 1.8;">Sail with distinction. We partner with the world's most prestigious cruise lines to offer you exclusive ocean and river voyages across the globe.</p>
+            <ul class="concierge-list">
+                <li>Exclusive Cabin upgrades & credits</li>
+                <li>Bespoke private shore excursions</li>
+                <li>Pre and post-cruise luxury hotel stays</li>
+            </ul>
+            <a href="cruise-specialist.html" class="btn">Explore Voyages</a>
+        </div>
+    </section>
+
+    <section class="speciality-block reveal">
+        <div class="spec-visual">
+            <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80" alt="NYC" class="spec-img">
+        </div>
+        <div class="spec-content">
+            <span class="spec-tag">Urban Exploration</span>
+            <h2>The Big Apple</h2>
+            <p style="color: var(--text-muted); line-height: 1.8;">Bespoke New York City breaks. We know the best rooftops, the quietest boutique hotels, and how to navigate the city like a local explorer.</p>
+            <ul class="concierge-list">
+                <li>Hard-to-get Broadway arrangements</li>
+                <li>Curated "Hidden NYC" dining maps</li>
+                <li>VIP airport-to-hotel private transfers</li>
+            </ul>
+            <a href="nyc-specialist.html" class="btn">Explore NYC</a>
+        </div>
+    </section>
+
+    <section class="standard-section reveal">
+        <span style="color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 5px; font-size: 0.8rem;">The Workflow</span>
+        <h2 style="font-size: 2.5rem; margin-top: 15px;">The Ridgeway Standard</h2>
+        <div class="standard-grid">
+            <div class="standard-step">
+                <span class="step-num">01</span>
+                <h4>Consult</h4>
+                <p style="opacity: 0.7; font-size: 0.85rem;">We start with a conversation to understand your specific travel style and preferences.</p>
+            </div>
+            <div class="standard-step">
+                <span class="step-num">02</span>
+                <h4>Curate</h4>
+                <p style="opacity: 0.7; font-size: 0.85rem;">We build a bespoke itinerary using our expert connections and on-ground knowledge.</p>
+            </div>
+            <div class="standard-step">
+                <span class="step-num">03</span>
+                <h4>Confirm</h4>
+                <p style="opacity: 0.7; font-size: 0.85rem;">We handle all bookings, logistics, and those tiny deluxe extras that make a trip.</p>
+            </div>
+            <div class="standard-step">
+                <span class="step-num">04</span>
+                <h4>Commute</h4>
+                <p style="opacity: 0.7; font-size: 0.85rem;">You travel with 24/7 support and the total peace of mind of a Ridgeway booking.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="credentials-section reveal">
+        <div class="credentials-container">
+            <img src="The-JLT-Group-Logo.png" alt="Janine Loves Travel" class="partner-logo">
+            <div class="legal-notice">
+                <p>Ridgeway Travels is a trading name of Kerry Kosh, an Independent Travel Expert. All bookings are made through <strong>Janine Loves Travel</strong>, members of ABTA (No. L3832) holding ATOL license (No. 6053).</p>
+                <p style="margin-top: 10px; font-size: 0.65rem; opacity: 0.7;">All flights and flight-inclusive holidays on this website are financially protected by the ATOL scheme. When you pay you will be supplied with an ATOL Certificate. Please see www.atol.org.uk/ATOLCertificate for more information.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-conditions.html">Terms & Conditions</a>
+            <a href="legal.html">Legal Information</a>
+        </div>
+        <p>&copy; 2026 Ridgeway Travels. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

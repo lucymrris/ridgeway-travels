@@ -1,0 +1,188 @@
+/* --- ROOT VARIABLES --- */
+:root {
+    --primary: #0A3D62;
+    --accent: #D4AF37;
+    --accent-dark: #B8860B;
+    --white: #ffffff;
+    --pearl: #FDFBF7;
+    --text-dark: #1e272e;
+    --text-muted: #576574;
+    --border: #e2e8f0;
+}
+
+/* --- GLOBAL STYLES --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    scroll-behavior: smooth; 
+}
+
+body { 
+    background-color: var(--white); 
+    overflow-x: hidden; 
+    color: var(--text-dark); 
+}
+
+/* --- UPDATED BADGE STYLES --- */
+.badge {
+    position: absolute;
+    /* Darker tint for better text contrast */
+    background: rgba(10, 61, 98, 0.75); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px 25px;
+    border-radius: 15px;
+    /* Gold border helps the badge "pop" from the photo */
+    border: 1px solid var(--accent); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    animation: bounce 4s infinite ease-in-out;
+    z-index: 20;
+    min-width: 160px;
+}
+
+/* Repositioning for better flow */
+.badge-1 { 
+    top: 15%; 
+    left: -40px; /* Moved further out to clear the main face of the image */
+}
+
+.badge-2 { 
+    bottom: 12%; 
+    right: -30px; 
+    animation-delay: 1s; 
+}
+
+.badge h4 { 
+    color: var(--accent); 
+    font-size: 1.1rem; 
+    margin-bottom: 4px;
+    font-weight: 800;
+}
+
+.badge p { 
+    margin: 0 !important; 
+    font-size: 0.75rem !important; 
+    color: white !important; 
+    opacity: 1 !important; 
+    border-left: none !important; 
+    padding-left: 0 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- THE EXECUTIVE DROPDOWN FIX (Mac/Safari) --- */
+select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--pearl) !important;
+    /* Custom Gold Arrow SVG - browser cannot override this */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23D4AF37' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 20px center !important;
+    background-size: 12px !important;
+    padding: 18px !important;
+    padding-right: 45px !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    font-size: 1rem !important;
+    color: var(--primary) !important;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+select:focus {
+    border-color: var(--accent) !important;
+    background-color: white !important;
+    outline: none !important;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1) !important;
+}
+
+/* Ensure dropdown options are readable */
+select option {
+    background-color: var(--pearl);
+    color: var(--primary);
+}
+
+/* --- HOST AGENCY LOGO (No Colors) --- */
+.partner-logo { 
+    height: 80px; 
+    width: auto;
+    margin-bottom: 25px; 
+    /* Strictly Monochrome: Forces logo to match your dark blue/gray theme */
+    filter: brightness(0) opacity(0.6); 
+    transition: 0.3s;
+}
+
+.partner-logo:hover { 
+    opacity: 1; 
+    filter: brightness(0); 
+}
+
+/* --- ANIMATIONS --- */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* --- RESPONSIVE BADGES --- */
+@media (max-width: 968px) {
+    .badge {
+        position: relative;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        margin: 10px auto;
+        width: fit-content;
+    }
+}
+/* --- REFINED HOST LOGO SIZE --- */
+.host-img { 
+    height: 45px; /* Reduced height for a more subtle, professional look */
+    width: auto;
+    display: block;
+    margin: 0 auto 20px auto; 
+    /* Keeps the logo monochrome to stay 'on brand' */
+    filter: grayscale(100%); 
+    opacity: 0.6; 
+    transition: 0.3s ease-in-out;
+    object-fit: contain;
+}
+
+.host-img:hover { 
+    opacity: 1;
+    filter: grayscale(0%); /* Optional: shows original color on hover */
+}
+
+/* Subtle spacing for the disclosure text */
+.legal-notice p {
+    margin-bottom: 8px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+/* --- THE FINAL LOGO SIZE FIX --- */
+.host-img { 
+    /* Force the size down */
+    height: 40px !important; 
+    width: auto !important;
+    max-width: 150px !important;
+    
+    /* Layout */
+    display: block !important;
+    margin: 0 auto 20px auto !important; 
+    
+    /* Aesthetics */
+    filter: grayscale(100%); 
+    opacity: 0.6; 
+    transition: 0.3s ease;
+    object-fit: contain !important;
+}
+
+.host-img:hover { 
+    opacity: 1;
+    filter: grayscale(0%); 
+}

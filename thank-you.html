@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Received | Ridgeway Travels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0A3D62;
+            --accent: #D4AF37;
+            --accent-dark: #B8860B;
+            --white: #ffffff;
+            --pearl: #FDFBF7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        body { 
+            background-color: var(--primary); 
+            color: white; 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+        }
+
+        .thank-you-shape {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .container { position: relative; z-index: 10; padding: 20px; }
+
+        h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 800; color: var(--white); }
+        p { font-size: 1.1rem; margin-bottom: 40px; opacity: 0.9; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+
+        .btn {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            transition: 0.4s;
+            font-size: 0.8rem;
+        }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4); }
+
+        .logo { position: absolute; top: 40px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; }
+        .logo span { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <div class="logo">Ridgeway <span>Travels</span></div>
+    <div class="thank-you-shape"></div>
+
+    <div class="container">
+        <span style="color: var(--accent); text-transform: uppercase; letter-spacing: 5px; font-weight: 800; font-size: 0.8rem; display: block; margin-bottom: 10px;">Request Confirmed</span>
+        <h1>The Journey Begins.</h1>
+        <p>Thank you for choosing Ridgeway Travels. Your consultation request has been received. We will review your details and be in touch within 24 hours to confirm your private session.</p>
+        <a href="index.html" class="btn">Return to Home</a>
+    </div>
+
+</body>
+</html>
