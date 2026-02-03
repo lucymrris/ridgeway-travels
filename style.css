@@ -186,3 +186,70 @@ select option {
     opacity: 1;
     filter: grayscale(0%); 
 }
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    /* 1. Fix the Header/Nav */
+    header {
+        padding: 1rem 5%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.65rem;
+    }
+
+    /* 2. Scale down the Hero sections */
+    .contact-hero, .page-header {
+        padding: 140px 5% 50px;
+    }
+
+    .contact-hero h1, .page-header h1 {
+        font-size: 2rem;
+    }
+
+    /* 3. Make cards and forms fit the screen */
+    .contact-card, .content-card {
+        padding: 30px 20px;
+        margin-top: -40px;
+        border-radius: 20px;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 4. Force columns to stack vertically */
+    .form-row, .scheduler-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* 5. Fix Booking elements */
+    .time-slots-container {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 30px;
+        height: auto;
+    }
+
+    .time-grid {
+        grid-template-columns: 1fr 1fr; /* Keep 2 columns for time slots */
+    }
+
+    .date-cell {
+        font-size: 0.75rem; /* Slightly smaller text for calendar */
+    }
+
+    /* 6. Legal and Footer */
+    .legal-notice {
+        font-size: 0.65rem;
+        padding: 0 10px;
+    }
+}
